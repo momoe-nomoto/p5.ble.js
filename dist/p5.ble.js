@@ -9725,6 +9725,8 @@ module.exports = g;
 "use strict";
 
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // Copyright (c) 2018 p5ble
 //
 // This software is released under the MIT License.
@@ -9757,14 +9759,44 @@ var p5ble = function () {
 
   _createClass(p5ble, [{
     key: 'connect',
-    value: function connect(serviceUuid, callback) {
+    value: function connect(serviceUuidOrOptions, callback) {
       var _this = this;
 
-      var options = {
-        filters: [{
-          services: [serviceUuid]
-        }]
-      };
+      var options = {};
+      var serviceUuid = void 0;
+
+      if (typeof serviceUuidOrOptions === 'string') {
+        serviceUuid = serviceUuidOrOptions.toLowerCase();
+        options = {
+          filters: [{
+            services: [serviceUuid]
+          }]
+        };
+      } else if ((typeof serviceUuidOrOptions === 'undefined' ? 'undefined' : _typeof(serviceUuidOrOptions)) === 'object' && serviceUuidOrOptions.filters) {
+        // Options = {
+        //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
+        // }
+        var servicesArray = serviceUuidOrOptions.filters.find(function (f) {
+          return f.services;
+        });
+        if (servicesArray && servicesArray.services && servicesArray.services[0]) {
+          serviceUuid = servicesArray.services[0].toLowerCase();
+          options.filters = serviceUuidOrOptions.filters.map(function (f) {
+            if (f.services) {
+              var newF = {};
+              newF.services = f.services.map(function (s) {
+                return s.toLowerCase();
+              });
+              return newF;
+            }
+            return f;
+          });
+        } else {
+          console.error('Please pass an option object in this format: options = { filters: [{ services: [serviceUuid] }]} ');
+        }
+      } else {
+        console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
+      }
 
       console.log('Requesting Bluetooth Device...');
 
@@ -10099,6 +10131,11 @@ function parseData(data, t, encoding) {
       // TODO: have the ability to choose different string encoding: like utf16
       decoder = new TextDecoder(encoding || 'utf8');
       result = decoder.decode(data);
+      break;
+
+    case 'custom':
+      // let the user do the parsing
+      result = data;
       break;
 
     default:
