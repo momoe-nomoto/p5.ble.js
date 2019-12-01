@@ -39,6 +39,15 @@
         "example",
         "doc"
       ]
+    },
+    {
+      "login": "honnet",
+      "name": "Cédric",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/642787?v=4",
+      "profile": "http://www.honnet.eu",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
