@@ -27,6 +27,14 @@ function setup() {
 function connectAndStartNotify() {
   // Connect to a device by passing the service UUID
   myBLE.connect(serviceUuid, gotCharacteristics);
+  // You can also filter devices by name
+  // myBLE.connect({
+  //   filters: [{
+  //     services: [serviceUuid],
+  //   }, {
+  //     name: 'ArduinoIMU'
+  //   }]
+  // }, gotCharacteristics)
 }
 
 // A function that will be called once got characteristics

@@ -16,15 +16,36 @@ class p5ble {
   }
 
   connect(serviceUuidOrOptions, callback) {
-    // default values:
-    let serviceUuid = 0x0000;
-    let options = { filters: [{ services: [serviceUuidOrOptions] }] };
+    let options = {};
+    let serviceUuid;
 
-    // also possible: options = { filters: [{ namePrefix: "name" }]}
-    if (typeof serviceUuidOrOptions === typeof options) {
-      options = serviceUuidOrOptions;
+    if (typeof serviceUuidOrOptions === 'string') {
+      serviceUuid = serviceUuidOrOptions.toLowerCase();
+      options = {
+        filters: [{
+          services: [serviceUuid],
+        }],
+      };
+    } else if (typeof serviceUuidOrOptions === 'object' && serviceUuidOrOptions.filters) {
+      // Options = {
+      //   filters: [{ namePrefix: "name" }, { services: ["2A5A20B9-0000-4B9C-9C69-4975713E0FF2"] }]
+      // }
+      const servicesArray = serviceUuidOrOptions.filters.find(f => f.services);
+      if (servicesArray && servicesArray.services && servicesArray.services[0]) {
+        serviceUuid = servicesArray.services[0].toLowerCase();
+        options.filters = serviceUuidOrOptions.filters.map((f) => {
+          if (f.services) {
+            const newF = {};
+            newF.services = f.services.map(s => s.toLowerCase());
+            return newF;
+          }
+          return f;
+        });
+      } else {
+        console.error('Please pass an option object in this format: options = { filters: [{ services: [serviceUuid] }]} ');
+      }
     } else {
-      serviceUuid = serviceUuidOrOptions;
+      console.error('Please pass in a serviceUuid string or option object, e.g. options = { filters: [{ services: [serviceUuid] }]} ');
     }
 
     console.log('Requesting Bluetooth Device...');
