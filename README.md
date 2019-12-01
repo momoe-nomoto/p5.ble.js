@@ -54,6 +54,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://www.yining.org"><img src="https://avatars3.githubusercontent.com/u/42452?v=4" width="100px;" alt=""/><br /><sub><b>Yining</b></sub></a><br /><a href="https://github.com/ITPNYU/p5.ble.js/commits?author=yining" title="Code">💻</a></td>
+    <td align="center"><a href="https://1023.io"><img src="https://avatars3.githubusercontent.com/u/8662372?v=4" width="100px;" alt=""/><br /><sub><b>Yining Shi</b></sub></a><br /><a href="https://github.com/ITPNYU/p5.ble.js/commits?author=yining1023" title="Code">💻</a> <a href="#example-yining1023" title="Examples">💡</a></td>
   </tr>
 </table>
 
