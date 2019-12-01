@@ -57,6 +57,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.jingwen-zhu.com"><img src="https://avatars1.githubusercontent.com/u/5662216?v=4" width="100px;" alt=""/><br /><sub><b>Jingwen Zhu</b></sub></a><br /><a href="#example-ZhuJingwen" title="Examples">💡</a> <a href="https://github.com/ITPNYU/p5.ble.js/commits?author=ZhuJingwen" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/tigoe"><img src="https://avatars3.githubusercontent.com/u/380575?v=4" width="100px;" alt=""/><br /><sub><b>Tom Igoe</b></sub></a><br /><a href="#example-tigoe" title="Examples">💡</a> <a href="https://github.com/ITPNYU/p5.ble.js/commits?author=tigoe" title="Documentation">📖</a></td>
     <td align="center"><a href="http://www.honnet.eu"><img src="https://avatars2.githubusercontent.com/u/642787?v=4" width="100px;" alt=""/><br /><sub><b>Cédric</b></sub></a><br /><a href="https://github.com/ITPNYU/p5.ble.js/commits?author=honnet" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/sandeepmistry"><img src="https://avatars1.githubusercontent.com/u/1163840?v=4" width="100px;" alt=""/><br /><sub><b>Sandeep Mistry</b></sub></a><br /><a href="#example-sandeepmistry" title="Examples">💡</a></td>
   </tr>
 </table>
 
