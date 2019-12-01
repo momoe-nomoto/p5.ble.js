@@ -15,12 +15,17 @@ class p5ble {
     this.handleNotifications = null;
   }
 
-  connect(serviceUuid, callback) {
-    const options = {
-      filters: [{
-        services: [serviceUuid],
-      }],
-    };
+  connect(serviceUuidOrOptions, callback) {
+    // default values:
+    let serviceUuid = 0x0000;
+    let options = { filters: [{ services: [serviceUuidOrOptions] }] };
+
+    // also possible: options = { filters: [{ namePrefix: "name" }]}
+    if (typeof serviceUuidOrOptions === typeof options) {
+      options = serviceUuidOrOptions;
+    } else {
+      serviceUuid = serviceUuidOrOptions;
+    }
 
     console.log('Requesting Bluetooth Device...');
 
