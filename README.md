@@ -55,6 +55,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://1023.io"><img src="https://avatars3.githubusercontent.com/u/8662372?v=4" width="100px;" alt=""/><br /><sub><b>Yining Shi</b></sub></a><br /><a href="https://github.com/ITPNYU/p5.ble.js/commits?author=yining1023" title="Code">💻</a> <a href="#example-yining1023" title="Examples">💡</a></td>
     <td align="center"><a href="http://www.jingwen-zhu.com"><img src="https://avatars1.githubusercontent.com/u/5662216?v=4" width="100px;" alt=""/><br /><sub><b>Jingwen Zhu</b></sub></a><br /><a href="#example-ZhuJingwen" title="Examples">💡</a> <a href="https://github.com/ITPNYU/p5.ble.js/commits?author=ZhuJingwen" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/tigoe"><img src="https://avatars3.githubusercontent.com/u/380575?v=4" width="100px;" alt=""/><br /><sub><b>Tom Igoe</b></sub></a><br /><a href="#example-tigoe" title="Examples">💡</a> <a href="https://github.com/ITPNYU/p5.ble.js/commits?author=tigoe" title="Documentation">📖</a></td>
   </tr>
 </table>
 

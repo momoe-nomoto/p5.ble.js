@@ -29,6 +29,16 @@
         "example",
         "doc"
       ]
+    },
+    {
+      "login": "tigoe",
+      "name": "Tom Igoe",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/380575?v=4",
+      "profile": "https://github.com/tigoe",
+      "contributions": [
+        "example",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
