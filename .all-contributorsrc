@@ -17,7 +17,9 @@
       "profile": "https://1023.io",
       "contributions": [
         "code",
-        "example"
+        "example",
+        "doc",
+        "bug"
       ]
     },
     {
@@ -27,7 +29,10 @@
       "profile": "http://www.jingwen-zhu.com",
       "contributions": [
         "example",
-        "doc"
+        "doc",
+        "bug",
+        "blog",
+        "tutorial"
       ]
     },
     {
@@ -37,7 +42,10 @@
       "profile": "https://github.com/tigoe",
       "contributions": [
         "example",
-        "doc"
+        "doc",
+        "bug",
+        "blog",
+        "tutorial"
       ]
     },
     {
