@@ -27,6 +27,7 @@ p5.ble.js is based on Web Bluetooth API, checkout Web Bluetooth API's [browser c
 ## Learning
 - ITP Physical Computing [Lab: Bluetooth LE and p5.ble](https://itp.nyu.edu/physcomp/labs/lab-bluetooth-le-and-p5-ble)
 - p5.ble Workshop [Slides](https://docs.google.com/presentation/d/1qkzMBh1A0eyD_W9J3G1VoI08VGDkVDUKFC5-pi1aUbc/edit?usp=sharing), [examples](./workshop)
+- Arduino Project Hub [Getting Started with p5.ble.js Using Arduino Nano 33 BLE](https://create.arduino.cc/projecthub/jingwen_zhu/getting-started-with-p5-ble-js-using-arduino-nano-33-ble-120ea6)
 
 ## Resources
 
