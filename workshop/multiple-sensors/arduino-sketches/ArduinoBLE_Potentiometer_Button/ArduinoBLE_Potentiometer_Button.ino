@@ -16,7 +16,7 @@
 const int sensorPin = A2; // set buttonPin to digital pin 4
 const int buttonPin = 3; // set buttonPin to digital pin 4
 
-BLEService sensorService("19B10010-E8F2-537E-4F6C-D104768A1214"); // create service
+BLEService sensorService("6d9ed6d4-300f-4902-bcec-b3847f900a3e"); // create service
 
 // create button characteristic and allow remote device to read and write
 BLEIntCharacteristic sensorCharacteristic("19B10012-E8F2-537E-4F6C-D104768A1214", BLERead | BLENotify);
