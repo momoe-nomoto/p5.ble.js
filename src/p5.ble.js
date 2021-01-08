@@ -101,7 +101,7 @@ class p5ble {
     const validChar = this.characteristics.find(char => char.uuid === characteristic.uuid);
     if (!validChar) return console.error('The characteristic does not exist.');
 
-    const bufferToSend = Uint8Array.of(inputValue);
+    const bufferToSend = new Uint8Array(toUTF8Array(inputValue));
     console.log(`Writing ${inputValue} to Characteristic...`);
     return characteristic.writeValue(bufferToSend);
   }
@@ -165,5 +165,37 @@ class p5ble {
     return false;
   }
 }
+
+function toUTF8Array(str) {
+  var utf8 = [];
+  for (var i=0; i < str.length; i++) {
+      var charcode = str.charCodeAt(i);
+      if (charcode < 0x80) utf8.push(charcode);
+      else if (charcode < 0x800) {
+          utf8.push(0xc0 | (charcode >> 6),
+                    0x80 | (charcode & 0x3f));
+      }
+      else if (charcode < 0xd800 || charcode >= 0xe000) {
+          utf8.push(0xe0 | (charcode >> 12),
+                    0x80 | ((charcode>>6) & 0x3f),
+                    0x80 | (charcode & 0x3f));
+      }
+      // surrogate pair
+      else {
+          i++;
+          // UTF-16 encodes 0x10000-0x10FFFF by
+          // subtracting 0x10000 and splitting the
+          // 20 bits of 0x0-0xFFFFF into two halves
+          charcode = 0x10000 + (((charcode & 0x3ff)<<10)
+                    | (str.charCodeAt(i) & 0x3ff));
+          utf8.push(0xf0 | (charcode >>18),
+                    0x80 | ((charcode>>12) & 0x3f),
+                    0x80 | ((charcode>>6) & 0x3f),
+                    0x80 | (charcode & 0x3f));
+      }
+  }
+  return utf8;
+}
+
 
 module.exports = p5ble;
